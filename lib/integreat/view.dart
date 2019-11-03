@@ -16,13 +16,50 @@ class _IntegreatViewState extends State<IntegreatView> {
 
   @override
   Widget build(BuildContext context) {
+
+    final _listPage = <Widget>[
+      DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: <Widget>[
+                Tab(text: "MOVIE",),
+                Tab(text: "FAVORITE",),
+              ],
+            ),
+            title: Text("The Movie DB"),
+          ),
+          body: TabBarView(children: <Widget>[
+            Icon(Icons.movie),
+            Icon(Icons.star)
+          ],),
+      )),
+      DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: <Widget>[
+                Tab(text: "TV SHOW",),
+                Tab(text: "FAVORITE",),
+              ],
+            ),
+            title: Text("The Movie DB"),
+          ),
+          body: TabBarView(children: <Widget>[
+            Icon(Icons.movie),
+            Icon(Icons.star),
+          ],),
+      ))
+    ];
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Integreat-it"),
-      ),
+      // appBar: AppBar(
+      //   title: Text("Integreat-it"),
+      // ),
       body: Center(
-        child: Column(children: <Widget>[
-        ],),
+        child: _listPage[_cIndex]
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _cIndex,
